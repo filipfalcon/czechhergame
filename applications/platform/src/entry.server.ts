@@ -4,7 +4,13 @@ import { Server } from 'foldkit/experimental';
 import { ApplicationBlock, Flags } from './application';
 import { readCountCookie } from './cookie';
 
-export const renderDocument = Server.renderDocument;
+// The page is American English unless the application's Document says otherwise, and follows the
+// reader's colour scheme, known before any stylesheet loads so the canvas never flashes the other.
+export const renderDocument: Server.DocumentRenderer = (application, assets) =>
+  Server.renderDocument(application, assets, {
+    lang: 'en-US',
+    head: '<meta name="color-scheme" content="light dark">',
+  });
 
 const flagsForRequest = (cookieHeader: string): typeof Flags.Type => ({
   initialCount: readCountCookie(cookieHeader),

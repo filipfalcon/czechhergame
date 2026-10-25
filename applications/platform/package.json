@@ -6,6 +6,7 @@
   "dependencies": {
     "@effect/platform-browser": "4.0.6",
     "@foldkit/ui": "0.169.0-canary.1f6776fa7ece",
+    "@stylexjs/stylex": "0.19.1",
     "effect": "4.0.6",
     "foldkit": "0.169.0-canary.1f6776fa7ece"
   },
@@ -14,7 +15,7 @@
     "@foldkit/devtools": "0.169.0-canary.1f6776fa7ece",
     "@foldkit/devtools-mcp": "0.25.0-canary.1f6776fa7ece",
     "@foldkit/vite-plugin": "0.28.0-canary.1f6776fa7ece",
-    "alchemy": "2.0.0-beta.84",
-    "happy-dom": "21.0.4"
+    "@stylexjs/unplugin": "0.19.1",
+    "alchemy": "2.0.0-beta.84"
   }
 }

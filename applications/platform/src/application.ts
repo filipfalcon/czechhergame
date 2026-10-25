@@ -1,3 +1,4 @@
+import * as stylex from '@stylexjs/stylex';
 import { Effect, Schema } from 'effect';
 import { Block } from 'foldkit';
 import { defineMessageUnion } from 'foldkit/message';
@@ -6,6 +7,7 @@ import { modifyFields } from 'foldkit/struct';
 import { Button } from '@foldkit/ui';
 
 import { COUNT_COOKIE } from './cookie';
+import { getStyleXAttributes } from './stylexAttributes';
 
 export const Model = Schema.Struct({
   count: Schema.Int,
@@ -78,10 +80,15 @@ export const init = ApplicationComposition.makeInit((flags: typeof Flags.Type) =
   },
 }));
 
+const styles = stylex.create({
+  // The platform face until the typeface layer replaces it, inherited by everything the application draws.
+  application: { fontFamily: 'system-ui' },
+});
+
 export const view = ApplicationComposition.makeView((model, h) => ({
   title: `Count ${model.count}`,
   body: h.main(
-    [],
+    [...getStyleXAttributes(h, styles.application)],
     [
       h.h1([], ['Server-rendered counter']),
       h.p([h.Id('count')], [model.count.toString()]),
