@@ -12,6 +12,13 @@
     "noUncheckedIndexedAccess": true, // Rule checked by TypeScript, as Oxlint has no equivalent.
     "noUnusedLocals": false, // Rule checked by Oxlint `eslint/no-unused-vars` instead.
     "noUnusedParameters": false, // Rule checked by Oxlint `eslint/no-unused-vars` instead.
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        // The modules Effect still marks unstable that this repository builds on by choice: the cookie parser the platform reads requests with.
+        "allowedUnstableApis": ["effect/http"]
+      }
+    ], // Effect rules checked by the Effect language service on top of TypeScript.
     "skipLibCheck": true, // Declarations checked by their authors instead.
     "target": "esnext", // Syntax handled by Rolldown and Node.js instead.
     "verbatimModuleSyntax": true // Rule checked by TypeScript, as Oxlint covers only part of it.

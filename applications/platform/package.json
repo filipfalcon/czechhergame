@@ -1,0 +1,20 @@
+{
+  "name": "@czechhergame/platform",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@effect/platform-browser": "4.0.6",
+    "@foldkit/ui": "0.169.0-canary.1f6776fa7ece",
+    "effect": "4.0.6",
+    "foldkit": "0.169.0-canary.1f6776fa7ece"
+  },
+  "devDependencies": {
+    "@alchemy.run/cloudflare": "2.0.0-beta.84",
+    "@foldkit/devtools": "0.169.0-canary.1f6776fa7ece",
+    "@foldkit/devtools-mcp": "0.25.0-canary.1f6776fa7ece",
+    "@foldkit/vite-plugin": "0.28.0-canary.1f6776fa7ece",
+    "alchemy": "2.0.0-beta.84",
+    "happy-dom": "21.0.4"
+  }
+}

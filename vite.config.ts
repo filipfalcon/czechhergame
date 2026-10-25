@@ -1,4 +1,9 @@
+import { recommended } from '@effect/tsgo/oxlint-presets';
+import foldkit from '@foldkit/oxlint-plugin';
 import { defineConfig } from 'vite-plus';
+
+/** Where the platform lives, whose code Foldkit's own rules hold to as well. */
+const platform = 'applications/platform/';
 
 export default defineConfig({
   staged: {
@@ -8,6 +13,7 @@ export default defineConfig({
     singleQuote: true,
   },
   lint: {
+    extends: [recommended],
     jsPlugins: [{ name: 'vite-plus', specifier: 'vite-plus/oxlint-plugin' }],
     categories: { correctness: 'error', suspicious: 'error', perf: 'error' },
     rules: {
@@ -22,6 +28,21 @@ export default defineConfig({
       'typescript/consistent-return': 'error',
     },
     options: { typeAware: true, typeCheck: true },
+    overrides: [
+      {
+        files: [`${platform}**`],
+        jsPlugins: foldkit.configs.recommended.jsPlugins,
+        rules: foldkit.configs.recommended.rules,
+      },
+      ...foldkit.configs.recommended.overrides.map(({ files, excludeFiles, rules }) => ({
+        files: files.map((file) => `${platform}${file}`),
+        excludeFiles: excludeFiles?.map((file) => `${platform}${file}`) ?? [],
+        rules,
+      })),
+    ],
+  },
+  test: {
+    projects: ['applications/*'],
   },
   run: {
     cache: true,

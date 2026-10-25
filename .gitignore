@@ -11,5 +11,8 @@ node_modules/
 # Rolldown
 dist/
 
+# Alchemy
+.alchemy/
+
 # Claude
 .claude/

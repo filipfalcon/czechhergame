@@ -17,15 +17,25 @@
   ],
   "type": "module",
   "scripts": {
-    "prepare": "vp config"
+    "prepare": "vp config && effect-tsgo patch --no-typescript --oxlint"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.4",
+    "@effect/tsgo": "0.57.0",
+    "@foldkit/oxlint-plugin": "0.15.3-canary.1f6776fa7ece",
     "@types/node": "24.19.2",
+    "effect": "4.0.6",
     "typescript": "7.0.2",
     "vite-plus": "1.4.0"
   },
   "overrides": {
+    "@effect/platform-browser": "4.0.6",
+    "@effect/platform-bun": "4.0.6",
+    "@effect/platform-node": "4.0.6",
+    "@effect/platform-node-shared": "4.0.6",
+    "@effect/sql-d1": "4.0.6",
+    "@effect/sql-sqlite-do": "4.0.6",
+    "effect": "$effect",
     "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
     "vitest": "5.0.5"
   },
